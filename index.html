@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agent Marketplace | $AGENTMARKETPLACE</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+      * { box-sizing: border-box; }
+      body { 
+        margin: 0; 
+        background: #05060a;
+        font-family: 'Rajdhani', sans-serif;
+      }
+      
+      @keyframes glitch {
+        0% { transform: translate(0); }
+        20% { transform: translate(-2px, 2px); }
+        40% { transform: translate(-2px, -2px); }
+        60% { transform: translate(2px, 2px); }
+        80% { transform: translate(2px, -2px); }
+        100% { transform: translate(0); }
+      }
+      
+      @keyframes scanline {
+        0% { transform: translateY(-100%); }
+        100% { transform: translateY(100vh); }
+      }
+      
+      @keyframes pulse-glow {
+        0%, 100% { opacity: 0.5; }
+        50% { opacity: 1; }
+      }
+      
+      @keyframes flicker {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.8; }
+        52% { opacity: 1; }
+        54% { opacity: 0.9; }
+      }
+      
+      @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+      }
+      
+      @keyframes data-stream {
+        0% { background-position: 0 0; }
+        100% { background-position: 0 100%; }
+      }
+      
+      @keyframes border-flow {
+        0% { background-position: 0% 50%; }
+        100% { background-position: 200% 50%; }
+      }
+      
+      .glitch-text:hover {
+        animation: glitch 0.3s ease-in-out infinite;
+      }
+      
+      .scanline::after {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(transparent, rgba(0, 255, 157, 0.1), transparent);
+        animation: scanline 4s linear infinite;
+        pointer-events: none;
+        z-index: 1000;
+      }
+      
+      .neon-cyan { text-shadow: 0 0 10px #00ff9d, 0 0 20px #00ff9d, 0 0 40px #00ff9d; }
+      .neon-pink { text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 40px #ff00ff; }
+      .neon-blue { text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff, 0 0 40px #00d4ff; }
+      
+      .cyber-border {
+        background: linear-gradient(90deg, #00ff9d, #00d4ff, #ff00ff, #00ff9d);
+        background-size: 200% 100%;
+        animation: border-flow 3s linear infinite;
+      }
+      
+      .glass-panel {
+        background: rgba(10, 15, 25, 0.85);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(0, 255, 157, 0.2);
+      }
+      
+      .grid-bg {
+        background-image: 
+          linear-gradient(rgba(0, 255, 157, 0.03) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(0, 255, 157, 0.03) 1px, transparent 1px);
+        background-size: 50px 50px;
+      }
+      
+      .data-rain {
+        background: repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 2px,
+          rgba(0, 255, 157, 0.03) 2px,
+          rgba(0, 255, 157, 0.03) 4px
+        );
+        animation: data-stream 20s linear infinite;
+      }
+      
+      input, select {
+        font-family: 'Share Tech Mono', monospace;
+      }
+      
+      ::-webkit-scrollbar { width: 6px; }
+      ::-webkit-scrollbar-track { background: #0a0f19; }
+      ::-webkit-scrollbar-thumb { background: #00ff9d40; border-radius: 3px; }
+      ::-webkit-scrollbar-thumb:hover { background: #00ff9d80; }
+    </style>
+  </head>
+  <body class="scanline">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
